@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Inventaris Barang</string>
+    <string name="kelompok_info">Kelompok 4 · Inventaris Barang</string>
+
+    <!-- Anggota Kelompok 4 (format "Nama|NIM") -->
+    <string name="judul_anggota">Anggota Kelompok 4</string>
+    <string name="lihat_anggota">Lihat anggota kelompok</string>
+    <string name="anggota_kelompok">Anggota Kelompok</string>
+    <string-array name="anggota_kelompok_023">
+        <item>Muhammad Syuja Al Abid|102042330012</item>
+        <item>Muhamad Naufal Nazih|102042300023</item>
+        <item>Ibnu Augustiana|102042300020</item>
+        <item>Zabila Nanda Irawan|102042300005</item>
+        <item>Damara Dihyan Darpita|102042330009</item>
+        <item>Salsa Salfania|102042300016</item>
+    </string-array>
+
+    <!-- Auth -->
+    <string name="login_title">Inventaris Barang</string>
+    <string name="login_subtitle">Masuk untuk mengelola barang milikmu</string>
+    <string name="register_title">Buat Akun</string>
+    <string name="register_subtitle">Daftar dulu sebelum mulai mencatat inventaris</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="konfirmasi_password">Konfirmasi Password</string>
+    <string name="password_helper">Minimal 6 karakter</string>
+    <string name="login">Login</string>
+    <string name="register">Daftar</string>
+    <string name="to_register">Belum punya akun? Daftar di sini</string>
+    <string name="to_login">Sudah punya akun? Login</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard">Dashboard</string>
+    <string name="dashboard_greeting">Halo, %1$s 👋</string>
+    <string name="dashboard_sub">Ringkasan inventaris kamu saat ini</string>
+    <string name="total_nilai_inventaris">Total Nilai Inventaris</string>
+    <string name="total_nilai_hint">Diperbarui otomatis (jumlah × harga)</string>
+    <string name="jenis_barang">Jenis Barang</string>
+    <string name="total_stok">Total Stok (unit)</string>
+    <string name="daftar_barang">Daftar Barang</string>
+    <string name="tambah_barang">Tambah Barang</string>
+    <string name="logout">Logout</string>
+    <string name="logout_confirm">Yakin ingin keluar dari akun ini?</string>
+
+    <!-- List -->
+    <string name="cari_barang">Cari nama barang…</string>
+    <string name="list_ringkasan">%1$d jenis barang · Total %2$s</string>
+    <string name="list_kosong">Belum ada barang.\nTekan tombol \"Tambah\" untuk menambahkan.</string>
+    <string name="list_tidak_ditemukan">Barang tidak ditemukan.</string>
+    <string name="item_detail">%1$d unit × %2$s</string>
+    <string name="tambah">Tambah</string>
+
+    <!-- Form -->
+    <string name="edit_barang">Edit Barang</string>
+    <string name="nama_barang">Nama Barang</string>
+    <string name="jumlah">Jumlah (unit)</string>
+    <string name="harga">Harga Satuan (Rp)</string>
+    <string name="preview_label">Nilai barang ini</string>
+    <string name="simpan">Simpan</string>
+    <string name="simpan_perubahan">Simpan Perubahan</string>
+    <string name="hapus">Hapus</string>
+    <string name="hapus_barang">Hapus Barang</string>
+    <string name="hapus_confirm">Hapus \"%1$s\" dari inventaris?</string>
+    <string name="batal">Batal</string>
+
+    <!-- Validasi & pesan -->
+    <string name="err_username_kosong">Username tidak boleh kosong</string>
+    <string name="err_username_spasi">Username tidak boleh mengandung spasi</string>
+    <string name="err_username_dipakai">Username sudah dipakai, pilih yang lain</string>
+    <string name="err_password_kosong">Password tidak boleh kosong</string>
+    <string name="err_password_min">Password minimal 6 karakter</string>
+    <string name="err_konfirmasi_kosong">Konfirmasi password tidak boleh kosong</string>
+    <string name="err_konfirmasi_beda">Konfirmasi password tidak sama</string>
+    <string name="err_nama_kosong">Nama barang tidak boleh kosong</string>
+    <string name="err_jumlah_kosong">Jumlah tidak boleh kosong</string>
+    <string name="err_harga_kosong">Harga tidak boleh kosong</string>
+    <string name="err_harga_nol">Harga harus lebih dari 0</string>
+    <string name="err_angka_tidak_valid">Angka tidak valid</string>
+    <string name="msg_login_gagal">Username atau password salah</string>
+    <string name="msg_login_berhasil">Selamat datang, %1$s!</string>
+    <string name="msg_register_berhasil">Registrasi berhasil, silakan login</string>
+    <string name="msg_tambah_berhasil">Barang berhasil ditambahkan</string>
+    <string name="msg_update_berhasil">Barang berhasil diperbarui</string>
+    <string name="msg_hapus_berhasil">Barang berhasil dihapus</string>
+    <string name="msg_data_tidak_ada">Data tidak ditemukan</string>
+</resources>

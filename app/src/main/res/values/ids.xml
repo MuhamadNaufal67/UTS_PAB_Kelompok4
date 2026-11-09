@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tag view untuk animasi (AnimUtil023) -->
+    <item name="tag_count_value_023" type="id" />
+    <item name="tag_count_animator_023" type="id" />
+    <item name="tag_float_animator_023" type="id" />
+</resources>

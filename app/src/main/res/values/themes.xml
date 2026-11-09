@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.InventarisKelompok4" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorPrimaryContainer">@color/primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/on_primary_container</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/on_secondary</item>
+        <item name="colorSecondaryContainer">@color/secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/on_secondary_container</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorOnSurfaceVariant">@color/on_surface_variant</item>
+        <item name="colorError">@color/error</item>
+        <!-- Animasi transisi antar halaman (slide kanan-kiri) -->
+        <item name="android:windowAnimationStyle">@style/ActivitySlideAnim023</item>
+    </style>
+
+    <!-- Bagian NIM 102042300023 – Animasi transisi Activity (±320ms) -->
+    <style name="ActivitySlideAnim023" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right_023</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out_left_023</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_in_left_023</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_right_023</item>
+    </style>
+</resources>
