@@ -50,4 +50,7 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
+
+    // Testing (NIM 005)
+    testImplementation("junit:junit:4.13.2")
 }

@@ -15,8 +15,8 @@ import com.kelompok4.inventaris.databinding.ActivityDashboardBinding
 import com.kelompok4.inventaris.session.SessionManager020
 import com.kelompok4.inventaris.ui.anggota.showAnggotaKelompok023
 import com.kelompok4.inventaris.ui.auth.LoginActivity
-import com.kelompok4.inventaris.ui.item.ItemFormActivity
 import com.kelompok4.inventaris.ui.item.ItemListActivity
+import com.kelompok4.inventaris.util.InventoryInteraction016
 import com.kelompok4.inventaris.util.addPressEffect023
 import com.kelompok4.inventaris.util.animateCount023
 import com.kelompok4.inventaris.util.applySystemBarsPadding023
@@ -51,8 +51,10 @@ class DashboardActivity : AppCompatActivity() {
         binding012.btnDaftarBarang012.setOnClickListener {
             startActivity(Intent(this, ItemListActivity::class.java))
         }
+
+        // NIM 016 – Navigasi Tambah Barang (Salsa Salfania)
         binding012.btnTambahBarang012.setOnClickListener {
-            startActivity(Intent(this, ItemFormActivity::class.java))
+            InventoryInteraction016.openItemFormForCreate016(this)
         }
         binding012.btnAnggota012.setOnClickListener { showAnggotaKelompok023(this) }
         binding012.btnLogout012.setOnClickListener { confirmLogout012() }

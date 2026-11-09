@@ -32,6 +32,63 @@
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Sorting Filter Chips (NIM 009) -->
+    <HorizontalScrollView
+        android:id="@+id/scrollSort009"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="2dp"
+        android:scrollbars="none">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupSort009"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:selectionRequired="true"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipNamaAsc009"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/sort_nama_asc" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipNamaDesc009"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sort_nama_desc" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipJumlahDesc009"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sort_jumlah_desc" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipHargaDesc009"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sort_harga_desc" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipHargaAsc009"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sort_harga_asc" />
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
     <TextView
         android:id="@+id/tvRingkasan023"
         android:layout_width="match_parent"

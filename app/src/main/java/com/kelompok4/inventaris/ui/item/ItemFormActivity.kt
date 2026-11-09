@@ -2,18 +2,18 @@
 package com.kelompok4.inventaris.ui.item
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.kelompok4.inventaris.R
 import com.kelompok4.inventaris.data.AppDatabase012
 import com.kelompok4.inventaris.data.Item012
 import com.kelompok4.inventaris.databinding.ActivityItemFormBinding
 import com.kelompok4.inventaris.session.SessionManager020
+import com.kelompok4.inventaris.util.InventoryInteraction016
+import com.kelompok4.inventaris.util.ValidationUtil005
 import com.kelompok4.inventaris.util.addPressEffect023
 import com.kelompok4.inventaris.util.animateCount023
 import com.kelompok4.inventaris.util.applySystemBarsPadding023
@@ -98,7 +98,7 @@ class ItemFormActivity : AppCompatActivity() {
         lifecycleScope.launch {
             val item023 = db023.itemDao012().getItemById012(itemId023, loginUserId023)
             if (item023 == null) {
-                Toast.makeText(this@ItemFormActivity, R.string.msg_data_tidak_ada, Toast.LENGTH_SHORT).show()
+                InventoryInteraction016.showToast016(this@ItemFormActivity, R.string.msg_data_tidak_ada)
                 finish()
                 return@launch
             }
@@ -129,32 +129,19 @@ class ItemFormActivity : AppCompatActivity() {
         binding023.tilJumlah023.error = null
         binding023.tilHarga023.error = null
 
-        // Validasi input kosong & angka
-        var valid023 = true
-        if (namaInput023.isEmpty()) {
-            binding023.tilNama023.error = getString(R.string.err_nama_kosong)
-            valid023 = false
-        }
-        val jumlahInput023 = jumlahText023.toIntOrNull()
-        if (jumlahText023.isEmpty()) {
-            binding023.tilJumlah023.error = getString(R.string.err_jumlah_kosong)
-            valid023 = false
-        } else if (jumlahInput023 == null || jumlahInput023 < 0) {
-            binding023.tilJumlah023.error = getString(R.string.err_angka_tidak_valid)
-            valid023 = false
-        }
-        val hargaInput023 = hargaText023.toLongOrNull()
-        if (hargaText023.isEmpty()) {
-            binding023.tilHarga023.error = getString(R.string.err_harga_kosong)
-            valid023 = false
-        } else if (hargaInput023 == null || hargaInput023 <= 0L) {
-            binding023.tilHarga023.error = getString(R.string.err_harga_nol)
-            valid023 = false
-        }
-        if (!valid023 || jumlahInput023 == null || hargaInput023 == null) {
+        // NIM 005 – Helper Validasi Input Barang (Zabila Nanda Irawan)
+        val validation005 = ValidationUtil005.validateItemInput005(namaInput023, jumlahText023, hargaText023)
+        if (!validation005.isValid005) {
+            binding023.tilNama023.error = validation005.errorNama005?.let { getString(it) }
+            binding023.tilJumlah023.error = validation005.errorJumlah005?.let { getString(it) }
+            binding023.tilHarga023.error = validation005.errorHarga005?.let { getString(it) }
             shakeIfError023(binding023.tilNama023, binding023.tilJumlah023, binding023.tilHarga023)
             return
         }
+
+        val jumlahInput023 = jumlahText023.toInt()
+        val hargaInput023 = hargaText023.toLong()
+
         // Mode edit tapi data lama belum selesai dimuat -> jangan simpan dulu
         if (itemId023 > 0 && itemLama023 == null) return
 
@@ -172,7 +159,8 @@ class ItemFormActivity : AppCompatActivity() {
                         harga012 = hargaInput023
                     )
                 )
-                Toast.makeText(this@ItemFormActivity, R.string.msg_tambah_berhasil, Toast.LENGTH_SHORT).show()
+                // NIM 016 – Toast Notifikasi (Salsa Salfania)
+                InventoryInteraction016.showToast016(this@ItemFormActivity, R.string.msg_tambah_berhasil)
             } else {
                 // UPDATE – id & user_id tetap milik data lama
                 itemDao023.updateItem012(
@@ -182,7 +170,8 @@ class ItemFormActivity : AppCompatActivity() {
                         harga012 = hargaInput023
                     )
                 )
-                Toast.makeText(this@ItemFormActivity, R.string.msg_update_berhasil, Toast.LENGTH_SHORT).show()
+                // NIM 016 – Toast Notifikasi (Salsa Salfania)
+                InventoryInteraction016.showToast016(this@ItemFormActivity, R.string.msg_update_berhasil)
             }
             finish()
         }
@@ -190,18 +179,14 @@ class ItemFormActivity : AppCompatActivity() {
 
     private fun confirmDelete023() {
         val namaHapus023 = itemLama023?.nama012 ?: return
-        MaterialAlertDialogBuilder(this)
-            .setTitle(R.string.hapus_barang)
-            .setMessage(getString(R.string.hapus_confirm, namaHapus023))
-            .setNegativeButton(R.string.batal, null)
-            .setPositiveButton(R.string.hapus) { _, _ ->
-                lifecycleScope.launch {
-                    db023.itemDao012().deleteItemById012(itemId023, loginUserId023)
-                    Toast.makeText(this@ItemFormActivity, R.string.msg_hapus_berhasil, Toast.LENGTH_SHORT).show()
-                    finish()
-                }
+        // NIM 016 – Dialog Konfirmasi Hapus Barang (Salsa Salfania)
+        InventoryInteraction016.showDeleteConfirmation016(this, namaHapus023) {
+            lifecycleScope.launch {
+                db023.itemDao012().deleteItemById012(itemId023, loginUserId023)
+                InventoryInteraction016.showToast016(this@ItemFormActivity, R.string.msg_hapus_berhasil)
+                finish()
             }
-            .show()
+        }
     }
 
     companion object {
